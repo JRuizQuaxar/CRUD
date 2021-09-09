@@ -4,7 +4,7 @@
 	if(isset($_GET['id'])){
 		$id=(int) $_GET['id'];
 
-		$buscar_id=$con->prepare('SELECT * FROM clientes WHERE id=:id LIMIT 1');
+		$buscar_id=$con->prepare('SELECT * FROM usuarios WHERE id=:id LIMIT 1');
 		$buscar_id->execute(array(
 			':id'=>$id
 		));
@@ -25,7 +25,7 @@
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('correo no valido');</script>";
 			}else{
-				$consulta_update=$con->prepare(' UPDATE clientes SET  
+				$consulta_update=$con->prepare(' UPDATE usuarios SET  
 					nombre=:nombre,
 					apellidos=:apellidos,
 					telefono=:telefono,

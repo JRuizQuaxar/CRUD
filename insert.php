@@ -12,7 +12,7 @@
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('correo no valido');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO clientes(nombre,apellidos,telefono,ciudad,correo) VALUES(:nombre,:apellidos,:telefono,:ciudad,:correo)');
+				$consulta_insert=$con->prepare('INSERT INTO usuarios(nombre,apellidos,telefono,ciudad,correo) VALUES(:nombre,:apellidos,:telefono,:ciudad,:correo)');
 				$consulta_insert->execute(array(
 					':nombre' =>$nombre,
 					':apellidos' =>$apellidos,

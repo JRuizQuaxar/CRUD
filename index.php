@@ -1,13 +1,13 @@
 <?php
 	include_once 'conexion.php';
-	$sentencia_select=$con->prepare('SELECT *FROM clientes ORDER BY id DESC');
+	$sentencia_select=$con->prepare('SELECT *FROM usuarios ORDER BY id DESC');
 	$sentencia_select->execute();
 	$resultado=$sentencia_select->fetchAll();
 
 	if(isset($_POST['boton_buscar'])){
 		$buscar_text=$_POST['buscar'];
 		$select_buscar=$con->prepare('
-			SELECT *FROM clientes WHERE nombre LIKE :campo OR apellidos LIKE :campo;'
+			SELECT *FROM usuarios WHERE nombre LIKE :campo OR apellidos LIKE :campo;'
 		);
 		$select_buscar->execute(array(
 			':campo' =>"%".$buscar_text."%"
